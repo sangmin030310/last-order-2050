@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://prologue.tscn" id="1"]
+[ext_resource type="Script" path="res://recovery.gd" id="2"]
+[ext_resource type="Texture2D" path="res://art/supply_district.webp" id="3"]
+
+[node name="Recovery" instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Map" parent="." index="0"]
+texture = ExtResource("3")
+
+[node name="WalkablePerimeter" parent="WorldBoundary" index="0"]
+polygon = PackedVector2Array(95, 276, 159, 255, 229, 246, 298, 233, 350, 225, 416, 220, 481, 208, 546, 228, 579, 244, 660, 234, 710, 219, 758, 222, 824, 219, 893, 202, 953, 219, 1020, 238, 1131, 234, 1174, 215, 1190, 244, 1135, 292, 1092, 338, 1107, 377, 1130, 403, 1083, 431, 992, 420, 891, 427, 822, 440, 768, 481, 747, 534, 752, 586, 797, 621, 877, 626, 964, 609, 1044, 626, 1154, 611, 1213, 621, 1196, 656, 1121, 680, 1025, 694, 877, 682, 776, 653, 721, 652, 689, 690, 600, 690, 551, 663, 475, 674, 364, 686, 239, 679, 173, 657, 146, 623, 223, 630, 287, 626, 349, 612, 445, 588, 505, 570, 508, 490, 455, 450, 399, 419, 302, 411, 161, 410, 111, 402, 89, 347)
+
+[node name="Player" parent="Actors" index="0"]
+position = Vector2(622, 363)
+
+[node name="Companion" parent="Actors" index="1"]
+position = Vector2(675, 379)
+
+[node name="Sites" type="Node2D" parent="." index="6"]
+
+[node name="Office" type="Marker2D" parent="Sites"]
+position = Vector2(342, 258)
+
+[node name="Factory" type="Marker2D" parent="Sites"]
+position = Vector2(927, 251)
+
+[node name="Stock" type="Marker2D" parent="Sites"]
+position = Vector2(360, 647)
+
+[node name="Control" type="Marker2D" parent="Sites"]
+position = Vector2(956, 650)

@@ -1,0 +1,6 @@
+Tool: built-in image_gen (imagegen skill)
+Source: art/조달청_국_좌우.jpg
+Output: art/pps_logo.png
+Transparent background: true
+
+Use case: background-extraction. Edit target: the supplied Korean Public Procurement Service horizontal logo. Remove ONLY all white background, including the white negative space inside the red/navy emblem, to actual transparent alpha. Preserve the exact existing emblem geometry, navy and red colors, and the exact gray Korean text '조달청' without redrawing, restyling, adding or changing lettering. Keep the original horizontal composition and aspect ratio. Trim outer empty margins to a modest even padding. Output a clean transparent PNG cutout for a small game corner logo. No shadows, no extra text, no decorative elements.

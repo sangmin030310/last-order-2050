@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://prologue.tscn" id="1"]
+[ext_resource type="Script" path="res://recovery.gd" id="2"]
+[ext_resource type="Texture2D" path="res://art/archive.webp" id="3"]
+
+[node name="ArchiveRoom" instance=ExtResource("1")]
+script = ExtResource("2")
+room = 1
+
+[node name="Map" parent="." index="0"]
+texture = ExtResource("3")
+
+[node name="WalkablePerimeter" parent="WorldBoundary" index="0"]
+polygon = PackedVector2Array(90, 315, 1190, 315, 1190, 657, 90, 657)
+
+[node name="Player" parent="Actors" index="0"]
+position = Vector2(1080, 540)
+
+[node name="Companion" parent="Actors" index="1"]
+position = Vector2(1125, 555)
+
+[node name="Sites" type="Node2D" parent="." index="6"]
+
+[node name="A" type="Marker2D" parent="Sites"]
+position = Vector2(285, 335)
+
+[node name="B" type="Marker2D" parent="Sites"]
+position = Vector2(955, 335)
+
+[node name="C" type="Marker2D" parent="Sites"]
+position = Vector2(640, 637)
+
+[node name="Exit" type="Marker2D" parent="Sites"]
+position = Vector2(1155, 605)

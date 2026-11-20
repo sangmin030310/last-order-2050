@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://prologue.tscn" id="1"]
+[ext_resource type="Script" path="res://chapter_one.gd" id="2"]
+
+[ext_resource type="Texture2D" path="res://art/daon.webp" id="3"]
+[ext_resource type="Texture2D" path="res://art/procurement_terminal.png" id="4"]
+
+[sub_resource type="RectangleShape2D" id="KioskFootprint"]
+size = Vector2(52, 24)
+
+[node name="ChapterOne" instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Map" parent="." index="0"]
+texture = ExtResource("3")
+
+[node name="Player" parent="Actors" index="0"]
+position = Vector2(568, 359)
+
+[node name="Companion" parent="Actors" index="1"]
+position = Vector2(620, 380)
+
+[node name="ProcurementKiosk" type="StaticBody2D" parent="Actors" index="2"]
+position = Vector2(650, 500)
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Actors/ProcurementKiosk"]
+position = Vector2(0, -40)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4")
+region_enabled = true
+region_rect = Rect2(370, 175, 590, 800)
+
+[node name="Collision" type="CollisionShape2D" parent="Actors/ProcurementKiosk"]
+position = Vector2(0, -12)
+shape = SubResource("KioskFootprint")
+
+[node name="WalkablePerimeter" parent="WorldBoundary" index="0"]
+polygon = PackedVector2Array(105, 285, 195, 285, 262, 252, 318, 235, 392, 223, 441, 247, 495, 275, 564, 269, 660, 247, 760, 252, 863, 248, 973, 227, 1057, 257, 1090, 285, 1050, 312, 1020, 386, 965, 408, 896, 411, 838, 438, 798, 493, 767, 565, 788, 612, 867, 641, 991, 626, 1049, 627, 1094, 643, 1098, 668, 1013, 692, 877, 690, 806, 667, 725, 648, 657, 695, 574, 695, 515, 661, 426, 685, 287, 679, 270, 649, 324, 616, 406, 593, 481, 571, 517, 514, 475, 453, 398, 413, 286, 410, 130, 418, 105, 391)
+
+[node name="Sites" type="Node2D" parent="." index="6"]
+
+[node name="Hospital" type="Marker2D" parent="Sites"]
+position = Vector2(960, 255)
+
+[node name="Warehouse" type="Marker2D" parent="Sites"]
+position = Vector2(365, 643)
+
+[node name="Depot" type="Marker2D" parent="Sites"]
+position = Vector2(980, 657)
+
+[node name="ProcurementTerminal" type="Marker2D" parent="Sites"]
+position = Vector2(650, 500)

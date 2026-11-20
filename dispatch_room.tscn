@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://prologue.tscn" id="1"]
+[ext_resource type="Script" path="res://recovery.gd" id="2"]
+[ext_resource type="Texture2D" path="res://art/dispatch.webp" id="3"]
+
+[node name="DispatchRoom" instance=ExtResource("1")]
+script = ExtResource("2")
+room = 3
+
+[node name="Map" parent="." index="0"]
+texture = ExtResource("3")
+
+[node name="WalkablePerimeter" parent="WorldBoundary" index="0"]
+polygon = PackedVector2Array(100, 302, 1180, 302, 1180, 623, 100, 623)
+
+[node name="Player" parent="Actors" index="0"]
+position = Vector2(640, 528)
+
+[node name="Companion" parent="Actors" index="1"]
+position = Vector2(685, 543)
+
+[node name="Sites" type="Node2D" parent="." index="6"]
+
+[node name="A" type="Marker2D" parent="Sites"]
+position = Vector2(194, 414)
+
+[node name="B" type="Marker2D" parent="Sites"]
+position = Vector2(1087, 414)
+
+[node name="C" type="Marker2D" parent="Sites"]
+position = Vector2(640, 320)
+
+[node name="Exit" type="Marker2D" parent="Sites"]
+position = Vector2(640, 604)
+
+[node name="RelayControl" type="Marker2D" parent="Sites"]
+position = Vector2(640, 469)

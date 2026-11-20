@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://prologue.tscn" id="1"]
+[ext_resource type="Script" path="res://hospital.gd" id="2"]
+[ext_resource type="Texture2D" path="res://art/hospital.webp" id="3"]
+[ext_resource type="Script" path="res://hospital_barrier.gd" id="4"]
+
+[sub_resource type="RectangleShape2D" id="Door"]
+size = Vector2(150, 15)
+
+[node name="Hospital" instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Map" parent="." index="0"]
+texture = ExtResource("3")
+
+[node name="WalkablePerimeter" parent="WorldBoundary" index="0"]
+polygon = PackedVector2Array(185, 265, 1085, 265, 1125, 390, 1125, 568, 1070, 639, 205, 639, 155, 574, 155, 402)
+
+[node name="Player" parent="Actors" index="0"]
+position = Vector2(640, 555)
+
+[node name="Companion" parent="Actors" index="1"]
+position = Vector2(735, 535)
+
+[node name="SteelPartition" type="Node2D" parent="Actors" index="2"]
+position = Vector2(0, 418)
+script = ExtResource("4")
+
+[node name="Barrier" type="StaticBody2D" parent="." index="6"]
+
+[node name="Left" type="CollisionPolygon2D" parent="Barrier"]
+polygon = PackedVector2Array(135, 403, 565, 403, 565, 418, 135, 418)
+
+[node name="Right" type="CollisionPolygon2D" parent="Barrier"]
+polygon = PackedVector2Array(715, 403, 1150, 403, 1150, 418, 715, 418)
+
+[node name="Gate" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(640, 410)
+shape = SubResource("Door")

@@ -1,0 +1,6 @@
+# Godot's generated import cache and editor state.
+.godot/
+
+# Local operating-system metadata.
+.DS_Store
+Thumbs.db
